@@ -1,0 +1,31 @@
+const express=require('express')
+const router=express.Router()
+
+const auth=require('../middleware/auth')
+const login=require('../controller/admin')
+const logout=require('../controller/admin')
+const filter=require('../controller/admin')
+const pending=require('../controller/admin')
+const completed=require('../controller/admin')
+const user=require('../controller/admin')
+const message=require('../controller/admin')
+const viewclaims=require('../controller/admin')
+const updateclaim=require('../controller/admin')
+const earnings=require('../controller/admin')
+
+router.post('/login',login)
+router.get('/logout',logout)
+router.get('/filter',auth,filter)
+router.get('/pending',auth,pending)
+router.get('/completed',auth,completed)
+router.get('/user',auth,user)
+router.post('/message',message)
+router.get('/message',message)
+router.get('/viewclaims',viewclaims)
+router.post('/updateclaim',updateclaim)
+// router.get('/claim/:status',claim)
+router.post('/earnings',earnings)
+router.get('/earnings',earnings)
+
+
+module.exports = router;
